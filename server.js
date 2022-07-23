@@ -34,7 +34,7 @@ let init = function() {
                 case "View employees":
                     viewEmployees();
                     break;
-                case "Add a department":
+                case "Add a new department":
                     addDepartment();
                     break;
                 case "Add a new role":
@@ -79,11 +79,24 @@ function viewEmployees() {
         console.table(res);
         init();
     })
-}; 
+} 
 
 function addDepartment() {
-    db.query('SELECT * FROM department', (err, res) =>{
-        if(err) throw err; 
+    db.query("SELECT * FROM department", (err, res) =>{
+        if (err) throw err; 
+        inquirer.prompt([
+            {
+                type: 'input',
+                name: 'nameDepartment',
+                message: 'What is the name of the new department?'
+            },
+        ])
+        .then(data =>{
+            db.query(`INSERT INTO department SET ?`,{
+                name: data.nameDepartment
+            })
+            init(); 
+        })
     })
 }
 
@@ -119,4 +132,4 @@ function addEmployee() {
             init(); 
         }) 
     })
-}
+};
