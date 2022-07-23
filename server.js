@@ -132,4 +132,4 @@ function addEmployee() {
             init(); 
         }) 
     })
-};
+}
