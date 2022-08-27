@@ -13,7 +13,7 @@
 5. [Questions](#questions)
 
 ## Description 
-Program that tracks the employees and their roles for your business. 
+Program that tracks the employees and their roles for your business
 
 ## Usage 
 for anyone starting a business or in HR that is trying to keep track of employees, departments, roles, salaries, and managers 
